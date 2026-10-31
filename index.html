@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panduan Bernas Insight Clipper • Bernas Kreatif Studio</title>
+  
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2318181b'/><path d='M35 30L70 50L35 70V30Z' fill='%232563eb'/></svg>" type="image/svg+xml">
+
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-main: #18181b;
+      --text-muted: #52525b;
+      --border-color: #e4e4e7;
+      --accent-color: #2563eb;
+      --accent-hover: #1d4ed8;
+      --code-bg: #09090b;
+      --code-text: #f4f4f5;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: var(--accent-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    ol, ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Code Box Styling */
+    .code-box {
+      position: relative;
+      background-color: var(--code-bg);
+      border-radius: 8px;
+      margin: 1.25rem 0;
+      overflow: hidden;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #18181b;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #27272a;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #a1a1aa;
+    }
+
+    .copy-btn {
+      background: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    pre {
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--code-text);
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    .alert {
+      background-color: #fefce8;
+      border-left: 4px solid #eab308;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .alert-title {
+      font-weight: 700;
+      color: #854d0e;
+      margin-bottom: 0.25rem;
+    }
+
+    .alert p {
+      color: #713f12;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .tab-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tab-btn {
+      background: #f4f4f5;
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .tab-btn.active {
+      background: var(--text-main);
+      color: #ffffff;
+      border-color: var(--text-main);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Promo Banner Box */
+    .promo-card {
+      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .promo-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .promo-card p {
+      color: #a1a1aa;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .promo-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      .container {
+        padding: 1.5rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <span class="badge">Workflow Editorial</span>
+      <h1>Panduan Bernas Insight Clipper di Gemini AI</h1>
+      <p class="subtitle">Ekstraksi poin-poin bermakna dari podcast & video panjang secara otomatis tanpa mengunduh keseluruhan video.</p>
+    </header>
+
+    <!-- KEBUTUHAN DASAR -->
+    <section class="section">
+      <h2>1. Persiapan Awal (Satu Kali Setup)</h2>
+      <p>Sebelum memulai ekstraksi momen penting, pastikan lingkungan kerja sederhana ini siap di laptop kamu:</p>
+      <ul>
+        <li><strong>Akses Gemini AI</strong> (akses melalui browser pilihanmu).</li>
+        <li><strong>Python 3.x</strong> (sudah terinstal bawaan di macOS, atau installer dari python.org untuk Windows).</li>
+        <li><strong>Terminal</strong> (pengguna Mac) atau <strong>PowerShell</strong> (pengguna Windows).</li>
+      </ul>
+    </section>
+
+    <!-- LANGKAH 1: PASANG SKILL DI GEMINI -->
+    <section class="section">
+      <h2>2. Aktivasi Skill di Gemini AI</h2>
+      <p>Salin dan kirimkan prompt instruksi di bawah ini ke Gemini AI. Langkah ini mengonfigurasi Gemini agar mengerti standar pemotongan video editorial bernilai tinggi:</p>
+
+      <div class="code-box">
+        <div class="code-header">
+          <span>PROMPT INSIASI SKILL</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copy Prompt</button>
+        </div>
+        <pre><code>Buat skill bernas-insight-clipper:
+
+Cara kerjanya:
+1. Pengguna memberikan URL YouTube dan topik bermakna yang ingin diekstrak.
+2. Gemini menganalisis transkrip untuk menemukan 3-4 momen paling kaya wawasan dan membuatkan script Python (extract_moments.py).
+3. Script mengambil segmen audio-visual secara efisien langsung dari server tanpa mengunduh file penuh.
+
+Aturan Timestamp Editorial:
+- Start: Presisi di kata awal pembicaraan (tidak melompati atau memotong kata pembuka).
+- End: Selalu berikan buffer +3 hingga +5 detik di akhir agar pemikiran tersampaikan dengan tuntas.
+
+Teknologi pendukung:
+- Python + Terminal/PowerShell
+- yt-dlp & FFmpeg (ekstrak 9:16 vertikal)</code></pre>
+      </div>
+
+      <p>Tunggu hingga Gemini mengonfirmasi bahwa skill <strong>bernas-insight-clipper</strong> telah tersimpan dan siap digunakan.</p>
+    </section>
+
+    <!-- LANGKAH 2: SETUP FOLDER & TOOLS DI LAPTOP -->
+    <section class="section">
+      <h2>3. Persiapan Folder Kerja & Library</h2>
+      <p>Buka <strong>Terminal</strong> (Mac) atau <strong>PowerShell</strong> (Windows), lalu jalankan perintah sesuai sistem operasi yang kamu gunakan:</p>
+
+      <div class="tab-group">
+        <button class="tab-btn active" onclick="switchTab('mac')">macOS (Terminal)</button>
+        <button class="tab-btn" onclick="switchTab('windows')">Windows (PowerShell)</button>
+      </div>
+
+      <!-- MAC TAB -->
+      <div id="tab-mac" class="tab-content active">
+        <p>Jalankan perintah ini di Terminal Mac kamu:</p>
+
+        <div class="code-box">
+          <div class="code-header">
+            <span>TERMINAL MAC</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy Command</button>
+          </div>
+          <pre><code>mkdir -p bernas-clipper && cd bernas-clipper
+python3 -m pip install yt-dlp
+brew install yt-dlp ffmpeg</code></pre>
+        </div>
+      </div>
+
+      <!-- WINDOWS TAB -->
+      <div id="tab-windows" class="tab-content">
+        <p>Jalankan perintah ini di PowerShell Windows kamu:</p>
+
+        <div class="code-box">
+          <div class="code-header">
+            <span>POWERSHELL WINDOWS</span>
+            <button class="copy-btn" onclick="copyCode(this)">Copy Command</button>
+          </div>
+          <pre><code>mkdir bernas-clipper
+cd bernas-clipper
+pip install yt-dlp</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGKAH 3: CARA PAKAI HARIAN -->
+    <section class="section">
+      <h2>4. Alur Ekstraksi Harian</h2>
+      <p>A. Kirimkan link video beserta konteks pembicaraan ke Gemini AI menggunakan perintah ini:</p>
+
+      <div class="code-box">
+        <div class="code-header">
+          <span>PROMPT EKSTRAKSI GEMINI</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copy Prompt</button>
+        </div>
+        <pre><code>Tolong cari 4 momen bernilai tinggi dari video ini: [MASUKKAN_LINK_YOUTUBE] dan buatkan script extract_moments.py.</code></pre>
+      </div>
+
+      <p>B. Gemini akan menyusun file script Python. Salin blok kode yang diberikan, lalu <strong>paste dan tekan Enter</strong> di Terminal/PowerShell kamu.</p>
+
+      <p>C. Jalankan script tersebut untuk memotong video secara otomatis:</p>
+
+      <div class="code-box">
+        <div class="code-header">
+          <span>TERMINAL / POWERSHELL</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copy Command</button>
+        </div>
+        <pre><code>python3 extract_moments.py</code></pre>
+      </div>
+
+      <p>Semua segmen klip vertikal 9:16 berbobot akan langsung tersimpan di dalam folder <code>bernas-clipper</code> dan siap masuk ke tahap perapihan akhir (*editing/captioning*).</p>
+    </section>
+
+    <!-- LANGKAH 4: HANDLE ERROR -->
+    <section class="section">
+      <h2>5. Penanganan Kendala Teknis</h2>
+      <p>Jika Terminal atau PowerShell menampilkan pesan kesalahan (*error*), kamu tidak perlu menganalisis kodenya secara manual:</p>
+
+      <div class="alert">
+        <div class="alert-title">Prosedur Otomatis Perbaikan</div>
+        <p>Salin seluruh teks error dari Terminal, lalu kirimkan kembali ke Gemini AI untuk mendapatkan solusi instan.</p>
+      </div>
+
+      <div class="code-box">
+        <div class="code-header">
+          <span>PROMPT DIAGNOSIS ERROR</span>
+          <button class="copy-btn" onclick="copyCode(this)">Copy Prompt</button>
+        </div>
+        <pre><code>Gue dapet error ini pas nemba script di terminal:
+
+[PASTE_PESAN_ERROR_KAMU_DI_SINI]
+
+Gimana cara perbaikinya di laptop gue?</code></pre>
+      </div>
+    </section>
+
+    <!-- ADS / PROMO BANNER -->
+    <div class="promo-card">
+      <h3>Butuh Konten Media Sosial Profesional Tanpa Ribet?</h3>
+      <p>Bernas Kreatif Studio membantu kamu mengelola seluruh produksi konten dari nol — mulai dari perencanaan ide, konseptualisasi visual, proses shooting, hingga editing siap unggah.</p>
+      <a href="https://studio.bernaskreatif.com/" target="_blank" rel="noopener noreferrer" class="promo-btn">Konsultasi dengan Bernas Kreatif Studio &rarr;</a>
+    </div>
+
+    <footer>
+      Bernas Kreatif Studio &copy; 2026
+    </footer>
+  </div>
+
+  <script>
+    // Copy Code Function
+    function copyCode(button) {
+      const codeBox = button.closest('.code-box');
+      const codeText = codeBox.querySelector('code').innerText;
+
+      navigator.clipboard.writeText(codeText).then(() => {
+        const originalText = button.innerText;
+        button.innerText = 'Copied!';
+        button.style.background = '#16a34a';
+
+        setTimeout(() => {
+          button.innerText = originalText;
+          button.style.background = 'var(--accent-color)';
+        }, 2000);
+      }).catch(err => {
+        console.error('Gagal mentransfer ke clipboard:', err);
+      });
+    }
+
+    // Switch OS Tabs
+    function switchTab(os) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      const contents = document.querySelectorAll('.tab-content');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      if (os === 'mac') {
+        buttons[0].classList.add('active');
+        document.getElementById('tab-mac').classList.add('active');
+      } else {
+        buttons[1].classList.add('active');
+        document.getElementById('tab-windows').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
